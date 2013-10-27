@@ -129,3 +129,11 @@ Which creates the string:
 
 Now you can add that to a `documentFragment` and use CSS selectors to query it. Better yet -- just slap some CSS on it and render it as-is. Try that with JSON.
 
+
+## Cool party tricks
+
+Here are some cool things you can do with Jiron that you can't do with JSON:
+
+* Deliver code on demand with JavaScript links (including any client SDK you need to customize any Jiron browser for your particular API)
+* Deliver default templates that make browsing your API directly in a browser pleasant
+* Deliver clickable links and usable forms while your users are browsing the API directly
