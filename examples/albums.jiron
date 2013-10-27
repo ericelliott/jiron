@@ -1,0 +1,24 @@
+head(profile='http://ericelliott.me/profiles/resource')
+  title Albums
+  link(rel='self, canonical', href='http://albums.com/albums')
+body
+  h1.title Albums
+  p.description A list of albums you should listen to.
+  ul.albums
+    li.album
+      a(rel='item', href='/albums/a65x0qxr')
+        span.name Dark Side of the Moon
+        span.artist Pink Floyd
+    li.album
+      a(rel='item', href='/albums/a7ff1qxw')
+        span.name Random Access Memories
+        span.artist Daft Punk
+
+  ul.links
+    li.link
+      a(rel='next', href='/albums?offset=2&limit=1') Next
+
+  // A count of the total number of entities
+  // available. Useful for paging info.
+  label(for="entityCount") Total count: 
+  span.entityCount(id="entityCount") 3
