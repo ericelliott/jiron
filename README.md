@@ -52,7 +52,7 @@ Here's a sample:
 ```jade
 head(profile='http://ericelliott.me/profiles/jiron-resource')
   title Albums
-  link(rel='canonical', href='http://albums.com/albums')
+  link(rel='self, canonical', href='http://albums.com/albums')
 body
   h1.title Albums
   p.description A list of albums you should listen to.
@@ -81,7 +81,7 @@ And the equivalent HTML:
 <!DOCTYPE html>
 <head profile="http://ericelliott.me/profiles/jiron-resource">
   <title>Albums</title>
-  <link rel="canonical" href="http://albums.com/albums">
+  <link rel="self, canonical" href="http://albums.com/albums">
 </head>
 <body>
   <h1 class="title">Albums</h1>
