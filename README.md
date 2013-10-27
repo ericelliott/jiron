@@ -144,6 +144,12 @@ Tricky with HTML:
 * Support any HTTP method type. PUT, PATCH, DELETE? No problem.
 * Support HTTP header changes in links:
 
+```jade
+a(headers='Accept:application/vnd.jiron+jade') Some Jiron resource
+```
+
+Which would translate to this, if HTML knew how to deal with it:
+
 ```html
 <a headers="Accept:application/vnd.jiron+jade">Some Jiron resource</a>
 ```
