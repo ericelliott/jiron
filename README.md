@@ -10,7 +10,7 @@ APIs are becoming crucially important to application development, but there are 
 
 ## JSON troubles
 
-JSON is a vastly popular format for mime types, and the syntax is terse, but:
+JSON is a defacto standard format for mime types, and the syntax is terse, but:
 
 1. It meets very few requirements for proper hypermedia support.
 2. What few hypermedia mime types for JSON that do exist tend to have far fewer affordances than HTML.
