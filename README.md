@@ -113,7 +113,7 @@ And the equivalent HTML:
 </body>
 ```
 
-Since Jiron is based on an existing template standard, the documents are easy to interpret. Browserify users get support on the client side automatically using [https://github.com/substack/node-jadeify](node-jadeify). You can also use browser to export an AMD module or stand-alone module for the browser.
+Since Jiron is based on an existing HTML template syntax, the documents are easy to interpret. Browserify users get support on the client side automatically using [https://github.com/substack/node-jadeify](node-jadeify). You can also use browser to export an AMD module or stand-alone module for the browser.
 
 Using it in the browser is simple:
 
