@@ -301,7 +301,7 @@ Tricky with HTML:
 * Support any HTTP method type. PUT, PATCH, DELETE? No problem.
 * Support HTTP header changes in links:
 
-## Method types
+### Method types
 
 Jiron is purposely very similar to HTML, except where HTML falls short on important affordances. For example, HTML lacks support for important methods, and doesn't prescribe any mapping between intended actions and HTTP method. HTML is also a little inconsistent with the URL for form targets, calling it `action` instead of `href` (which is used in almost all other cases involving links). Jiron can improve on HTML on both counts. Imagine this syntax:
 
@@ -323,7 +323,7 @@ And finally be translated to this by the Jiron client:
 <form method="POST" action="http://api.x.io/orders/42/items" type="application/x-www-form-urlencoded"></form>
 ```
 
-## Support for headers in links:
+### Support for headers in links:
 
 ```jade
 a(headers='Accept:application/vnd.jiron+jade') Some Jiron resource
