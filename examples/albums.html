@@ -1,18 +1,46 @@
 <head profile="http://ericelliott.me/profiles/resource">
-  <title>Albums</title>
-  <link rel="self, canonical" href="http://albums.com/albums"/>
+    <title>Albums</title>
 </head>
-<body>
-  <h1 class="title">Albums</h1>
-  <p class="description">A list of albums you should listen to.</p>
-  <ul class="albums">
-    <li class="album"><a rel="item" href="/albums/a65x0qxr"><span class="name">Dark Side of the Moon</span><span class="artist">Pink Floyd</span></a></li>
-    <li class="album"><a rel="item" href="/albums/a7ff1qxw"><span class="name">Random Access Memories</span><span class="artist">Daft Punk</span></a></li>
-  </ul>
-  <ul class="links">
-    <li class="link"><a rel="next" href="/albums?offset=2&amp;limit=1">Next</a></li>
-  </ul>
-  <!-- A count of the total number of entities-->
-  <!-- available. Useful for paging info.-->
-  <label for="entityCount">Total count: </label><span id="entityCount" class="entityCount">3</span>
+
+<body class="albums">
+    <h1 class="title">Albums</h1>
+
+    <ul class="properties">
+        <li class="property">
+            <p class="description">A list of albums you should listen to.</p>
+        </li>
+
+        <li class="property"><!-- A count of the total number of entities-->
+        <!-- available. Useful for paging info.-->
+        <label for="entityCount">Total count:</label> <span class="entityCount"
+        id="entityCount">3</span></li>
+    </ul>
+
+    <ul class="entities">
+        <li class="entity album">
+            <a href="/albums/a65x0qxr" rel="item">
+            <ul class="properties">
+                <li class="property name">Dark Side of the Moon</li>
+                <li class="property artist">Pink Floyd</li>
+            </ul></a>
+        </li>
+
+        <li class="entity album">
+            <a href="/albums/a7ff1qxw" rel="item">
+            <ul class="properties">
+                <li class="property name">Random Access Memories</li>
+                <li class="property artist">Daft Punk</li>
+            </ul></a>
+        </li>
+    </ul>
+
+    <ul class="links">
+        <li class="link">
+            <a href="/albums?offset=2&amp;limit=1" rel="next">Next</a>
+        </li>
+
+        <li class="link">
+            <link href="http://albums.com/albums" rel="self, canonical">
+        </li>
+    </ul>
 </body>
