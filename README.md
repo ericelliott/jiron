@@ -8,6 +8,11 @@ A hypermedia type based on Siren and the Jade template language.
 APIs are becoming crucially important to application development, but there are a few problems with the current state of types used for APIs:
 
 
+## Status
+
+Idea phase. We're still fleshing out the best way to map Siren semantics to HTML, along with aditional conventions that can take advantage of HTMLs existing semantics to improve on Siren.
+
+
 ## JSON troubles
 
 JSON is a defacto standard format for types, and the syntax is terse, but:
