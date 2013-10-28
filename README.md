@@ -5,15 +5,17 @@ A hypermedia type based on Siren and the Jade template language.
 
 > Part or small portion of a whole: patch of fog.
 
-APIs are becoming crucially important to application development, but there are a few problems with the current state of types used for APIs:
-
-
 ## Status
 
 Idea phase. We're still fleshing out the best way to map Siren semantics to HTML, along with aditional conventions that can take advantage of HTMLs existing semantics to improve on Siren.
 
 
-## JSON troubles
+## Justification
+
+APIs are becoming crucially important to application development, but there are a few problems with the current state of types used for APIs:
+
+
+### JSON troubles
 
 JSON is a defacto standard format for types, and the syntax is terse, but:
 
@@ -21,7 +23,7 @@ JSON is a defacto standard format for types, and the syntax is terse, but:
 2. What few hypermedia types for JSON that do exist tend to have far fewer affordances than HTML.
 
 
-## HTML troubles
+### HTML troubles
 
 HTML is the most popular hypermedia type in the world, but:
 
@@ -30,12 +32,7 @@ HTML is the most popular hypermedia type in the world, but:
 3. HTML is verbose, and expensive over the network compared to JSON.
 
 
-## Jade
-
-Jade is a very terse, elegant markup syntax that was originally designed as a template language that compiles to HTML. One day as I was contemplating the problems we have with our current breed of hypermedia types, it occurred to me that Jade might be a great format to base a new type on.
-
-
-## Siren
+### Siren troubles
 
 Siren is an elegant way to add hypermedia semantics to JSON, including:
 
@@ -46,7 +43,34 @@ Siren is an elegant way to add hypermedia semantics to JSON, including:
 
 The thing that makes Siren great is that it defines a set of semantics that revolve around the concept of entities -- which happen to map really well to resource representations. Put Siren semantics on top of a resourceful API, and you've got a recipe for a highly scalable, highly decoupled architecture.
 
-The biggest problem I have with Siren is that it has few affordances for user messaging.
+Even with the extra affordances that Siren provides, it is still not as rich as HTML in what you can express with it. In particular, it lacks:
+
+* Code on demand
+* Style support
+
+
+### Jade
+
+Jade is a very terse, elegant markup syntax that was originally designed as a template language that compiles to HTML. One day as I was contemplating the problems we have with our current breed of hypermedia types, it occurred to me that Jade might be a great format to base a new type on.
+
+Some things it has going for it:
+
+* Supports all the features of HTML
+* Light weight syntax
+* Easy to learn
+* Since it's a template language, it's trivial to create serializers for it
+* Since it outputs HTML, it's easy to work with in browsers
+
+Downsides:
+
+* No clear standard for representing server resources and entities
+* It has the same shortcomings as HTML
+
+
+## Solution
+
+What we need is a best of all worlds. Something terse like JSON, but expressive like HTML. A clear way of representing resources and entities. Bonus if we can take advantage of lots of existing tooling in the process.
+
 
 ## Jiron
 
