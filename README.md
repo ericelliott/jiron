@@ -203,7 +203,7 @@ body.order
 
 Which translates to the following HTML:
 
-```
+```html
 <head>
     <title>Order</title>
 </head>
