@@ -1,7 +1,7 @@
 Jiron
 =====
 
-A hypermedia mime type based on Siren and the Jade template language.
+A hypermedia type based on Siren and the Jade template language.
 
 > Part or small portion of a whole: patch of fog.
 
