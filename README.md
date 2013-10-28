@@ -273,7 +273,8 @@ Which translates to the following HTML:
             <!-- The method in html is determined by the-->
             <!-- mapping between actions and HTML methods.-->
 
-            <form action="create">
+            <form method="POST" action="http://api.x.io/orders/42/items"
+              enctype="application/x-www-form-urlencoded">
                 <fieldset>
                     <legend>Add Item</legend> <label>Order Number
                     <input hidden="hidden" name="orderNumber" value=
