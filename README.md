@@ -55,70 +55,222 @@ Jiron is a mapping of Siren semantics combined with the expressive power and aff
 Here's a sample:
 
 ```jade
-head(profile='http://ericelliott.me/profiles/jiron-resource')
+head(profile='http://ericelliott.me/profiles/resource')
   title Albums
-  link(rel='self, canonical', href='http://albums.com/albums')
-body
+  
+body.albums
   h1.title Albums
-  p.description A list of albums you should listen to.
-  ul.albums
-    li.album
+  ul.properties
+    li.property
+      p.description A list of albums you should listen to.
+    li.property
+      // A count of the total number of entities
+      // available. Useful for paging info.
+      label(for="entityCount") Total count: 
+      span.entityCount(id="entityCount") 3
+
+  ul.entities
+    li.entity.album
       a(rel='item', href='/albums/a65x0qxr')
-        span.name Dark Side of the Moon
-        span.artist Pink Floyd
-    li.album
+        ul.properties
+          li.property.name Dark Side of the Moon
+          li.property.artist Pink Floyd
+    li.entity.album
       a(rel='item', href='/albums/a7ff1qxw')
-        span.name Random Access Memories
-        span.artist Daft Punk
+        ul.properties
+          li.property.name Random Access Memories
+          li.property.artist Daft Punk
 
   ul.links
     li.link
       a(rel='next', href='/albums?offset=2&limit=1') Next
-
-  // A count of the total number of entities
-  // available. Useful for paging info.
-  p.entityCount 3
+    li.link
+      link(rel='self, canonical', href='http://albums.com/albums')
 ```
 
 And the equivalent HTML:
 
 ```html
-<!DOCTYPE html>
-<head profile="http://ericelliott.me/profiles/jiron-resource">
-  <title>Albums</title>
-  <link rel="self, canonical" href="http://albums.com/albums">
+<head profile="http://ericelliott.me/profiles/resource">
+    <title>Albums</title>
 </head>
-<body>
-  <h1 class="title">Albums</h1>
-  <p class="description">A list of albums you should
-    listen to.</p>
-  <ul class="albums">
-    <li class="album">
-      <a rel="item" href="/albums/a65x0qxr">
-        <span class="name">Dark Side of the Moon</span>
-        <span class="artist">Pink Floyd</span>
-      </a>
-    </li>
-    <li class="album">
-      <a rel="item" href="/albums/a7ff1qxw">
-        <span class="name">Random Access Memories</span>
-        <span class="artist">Daft Punk</span>
-      </a>
-    </li>
-  </ul>
-  <ul class="links">
-    <li class="link">
-        <a rel="next"
-          href="/albums?offset=2&amp;limit=2">Next</a>
-    </li>
-  </ul>
-  <!-- A count of the total number of entities-->
-  <!-- available. Useful for paging info.-->
-  <p class="entityCount">3</p>
+
+<body class="albums">
+    <h1 class="title">Albums</h1>
+
+    <ul class="properties">
+        <li class="property">
+            <p class="description">A list of albums you should listen to.</p>
+        </li>
+
+        <li class="property"><!-- A count of the total number of entities-->
+        <!-- available. Useful for paging info.-->
+        <label for="entityCount">Total count:</label> <span class="entityCount"
+        id="entityCount">3</span></li>
+    </ul>
+
+    <ul class="entities">
+        <li class="entity album">
+            <a href="/albums/a65x0qxr" rel="item">
+            <ul class="properties">
+                <li class="property name">Dark Side of the Moon</li>
+
+                <li class="property artist">Pink Floyd</li>
+            </ul></a>
+        </li>
+
+        <li class="entity album">
+            <a href="/albums/a7ff1qxw" rel="item">
+            <ul class="properties">
+                <li class="property name">Random Access Memories</li>
+
+                <li class="property artist">Daft Punk</li>
+            </ul></a>
+        </li>
+    </ul>
+
+    <ul class="links">
+        <li class="link">
+            <a href="/albums?offset=2&amp;limit=1" rel="next">Next</a>
+        </li>
+
+        <li class="link">
+            <link href="http://albums.com/albums" rel="self, canonical">
+        </li>
+    </ul>
 </body>
 ```
 
-Since Jiron is based on an existing HTML template syntax, the documents are easy to interpret. Browserify users get support on the client side automatically using [https://github.com/substack/node-jadeify](node-jadeify). You can also use browserify to export an AMD module or stand-alone module for the browser.
+Here's a translation of the example from the Siren README:
+
+```jade
+head
+  title Order
+body.order
+  h1 Order
+  ul.properties
+    li.property
+      label Order Number
+        span.orderNumber 42
+    li.property
+      label Item Count
+        span.itemCount 3
+    li.property
+      label Status
+        span.status pending
+
+  ul.entities
+    li.entity.items.collection
+      a(rel='http://x.io/rels/order-items',
+        href='http://api.x.io/orders/42/items')
+        | Items
+
+    li.entity.info.customer
+      a(rel='http://x.io/rels/customer'
+        href='http://api.x.io/customers/pj123'),
+        ul.properties
+          li.property
+            label Customer ID
+              span.customerId pj123
+          li.property
+            label Name
+              span.name Peter Joseph
+
+  ul.actions
+    li.action
+      // Action is one of:
+      // index, create, show, put, delete, patch
+      // The method in html is determined by the
+      // mapping between actions and HTML methods.
+      form(action='create',
+        href='http://api.x.io/orders/42/items',
+        type='application/x-www-form-urlencoded')
+        fieldset
+          legend Add Item
+          label Order Number
+            input(name='orderNumber', hidden='hidden', value='42')
+          label Product Code
+            input(name='productCode', type='text')
+          label Quantity
+            input(name='quantity', type='number')
+
+  ul.links
+    a(rel='self', href='http://api.x.io/orders/42',
+      style='display: none;')
+    a(rel='previous', href='http://api.x.io/orders/41') Previous
+    a(rel='next', href='http://api.x.io/orders/43') Next
+```
+
+Which translates to the following HTML:
+
+```
+<head>
+    <title>Order</title>
+</head>
+
+<body class="order">
+    <h1>Order</h1>
+
+    <ul class="properties">
+        <li class="property"><label>Order Number<span class=
+        "orderNumber">42</span></label></li>
+
+        <li class="property"><label>Item Count<span class=
+        "itemCount">3</span></label></li>
+
+        <li class="property"><label>Status<span class=
+        "status">pending</span></label></li>
+    </ul>
+
+    <ul class="entities">
+        <li class="entity items collection">
+            <a href="http://api.x.io/orders/42/items" rel=
+            "http://x.io/rels/order-items">Items</a>
+        </li>
+
+        <li class="entity info customer">
+            <a href="http://api.x.io/customers/pj123" rel=
+            "http://x.io/rels/customer">,
+
+            <ul class="properties">
+                <li class="property"><label>Customer ID<span class=
+                "customerId">pj123</span></label></li>
+
+                <li class="property"><label>Name<span class="name">Peter
+                Joseph</span></label></li>
+            </ul></a>
+        </li>
+    </ul>
+
+    <ul class="actions">
+        <li class="action">
+            <!-- Action is one of:-->
+            <!-- index, create, show, put, delete, patch-->
+            <!-- The method in html is determined by the-->
+            <!-- mapping between actions and HTML methods.-->
+
+            <form action="create">
+                <fieldset>
+                    <legend>Add Item</legend> <label>Order Number
+                    <input hidden="hidden" name="orderNumber" value=
+                    "42"></label> <label>Product Code <input name="productCode"
+                    type="text"></label> <label>Quantity <input name="quantity"
+                    type="number"></label>
+                </fieldset>
+            </form>
+        </li>
+    </ul>
+
+    <div class="links" style="margin-left: 2em">
+        <a href="http://api.x.io/orders/42" rel="self" style=
+        "display: none;"></a><a href="http://api.x.io/orders/41" rel=
+        "previous">Previous</a><a href="http://api.x.io/orders/43" rel=
+        "next">Next</a>
+    </div>
+</body>
+```
+
+Since `jiron+jade` is based on an existing HTML template syntax, the documents are easy to interpret. Browserify users get support on the client side automatically using [https://github.com/substack/node-jadeify](node-jadeify). You can also use browserify to export an AMD module or stand-alone module for the browser.
 
 Using it in the browser is simple:
 
