@@ -344,7 +344,7 @@ Which would map to the following raw (broken) HTML:
 
 And finally be translated to this by the Jiron client:
 
-```
+```html
 <form method="POST" action="http://api.x.io/orders/42/items" type="application/x-www-form-urlencoded"></form>
 ```
 
