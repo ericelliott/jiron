@@ -5,29 +5,29 @@ A hypermedia type based on Siren and the Jade template language.
 
 > Part or small portion of a whole: patch of fog.
 
-APIs are becoming crucially important to application development, but there are a few problems with the current state of mime types used for APIs:
+APIs are becoming crucially important to application development, but there are a few problems with the current state of types used for APIs:
 
 
 ## JSON troubles
 
-JSON is a defacto standard format for mime types, and the syntax is terse, but:
+JSON is a defacto standard format for types, and the syntax is terse, but:
 
 1. It meets very few requirements for proper hypermedia support.
-2. What few hypermedia mime types for JSON that do exist tend to have far fewer affordances than HTML.
+2. What few hypermedia types for JSON that do exist tend to have far fewer affordances than HTML.
 
 
 ## HTML troubles
 
-HTML is the most popular hypermedia mime type in the world, but:
+HTML is the most popular hypermedia type in the world, but:
 
 1. We take it for granted as a markup language for UI. It's hard to imagine how to apply it to good API design.
-2. There are no popular standards or implementations of HTML as an API mime type.
+2. There are no popular standards or implementations of HTML as an API type.
 3. HTML is verbose, and expensive over the network compared to JSON.
 
 
 ## Jade
 
-Jade is a very terse, elegant markup syntax that was originally designed as a template language that compiles to HTML. One day as I was contemplating the problems we have with our current breed of hypermedia mime types, it occurred to me that Jade might be a great format to base a new mime type on.
+Jade is a very terse, elegant markup syntax that was originally designed as a template language that compiles to HTML. One day as I was contemplating the problems we have with our current breed of hypermedia types, it occurred to me that Jade might be a great format to base a new type on.
 
 
 ## Siren
