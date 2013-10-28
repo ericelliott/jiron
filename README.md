@@ -39,7 +39,7 @@ Siren is an elegant way to add hypermedia semantics to JSON, including:
 * Actions with templates
 * Metadata
 
-The thing that makes Siren great is that it defines a set of semantics that revolve around the concept of entities -- which happen to map really well to resource representations. Put Siren semantics on top of a resourceful API, and you've got a recipe for a highly scalable, highly decaupled architecture.
+The thing that makes Siren great is that it defines a set of semantics that revolve around the concept of entities -- which happen to map really well to resource representations. Put Siren semantics on top of a resourceful API, and you've got a recipe for a highly scalable, highly decoupled architecture.
 
 The biggest problem I have with Siren is that it has few affordances for user messaging.
 
