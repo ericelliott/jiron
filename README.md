@@ -5,7 +5,7 @@ Make your API self documenting, your clients adaptable to API changes. It's all 
 
 Jiron is a hypermedia type based on Siren and the Jade template language. Instead of delivering your data in JSON messages, pack that data with related links, actions that clients can request on the reperesented resource, even code on demand to upgrade the client's capabilities to deal with the given resource.
 
-> Part or small portion of a whole: patch of fog.
+> Jiron: Part or small portion of a whole: patch of fog.
 
 ## Status
 
