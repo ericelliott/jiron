@@ -9,7 +9,7 @@ Jiron is a hypermedia type based on Siren and the Jade template language. Instea
 
 ## Status
 
-Just an idea for mapping Siren semantics to HTML as opposed to JSON for an enhanced API data delivery experience, explored briefly in the book, "Programming JavaScript Applications".
+Just an idea for mapping Siren semantics to HTML as opposed to JSON for an enhanced API data delivery experience, explored briefly in the book, ["Programming JavaScript Applications"](https://pjabook.com).
 
 
 ## Justification
